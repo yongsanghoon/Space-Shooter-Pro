@@ -10,7 +10,10 @@ public class Player : MonoBehaviour
     // Private vars are prefixed with "_"
     // Set the 'SerializeField' attr to view and override it within the editor
     [SerializeField]
-    private float _speed = 10f;
+    private float _speed = 10.0f;
+
+    [SerializeField]
+    private GameObject _laserPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +26,12 @@ public class Player : MonoBehaviour
     void Update()
     {
         CalculateMovement();
+
+        // Space key entered = spawn
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(_laserPrefab,transform.position, Quaternion.identity);
+        }
     }
 
     void CalculateMovement()
