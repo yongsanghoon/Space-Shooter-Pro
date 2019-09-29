@@ -36,7 +36,13 @@ public class Enemy : MonoBehaviour
         // If other is player (using tags) --> dmg player first, then destroy enemy
         if (other.tag == "Player")
         {
-            // TODO: Damage the player
+            // Damage the player
+            Player player = other.transform.GetComponent<Player>();
+
+            if (player != null)
+            {
+                player.Damage();
+            }
 
             // Destroy yourself (enemy)
             Destroy(this.gameObject);
