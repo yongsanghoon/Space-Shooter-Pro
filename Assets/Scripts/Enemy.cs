@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
     }
 
     // Used to detect who collided with the laser (passthrough)
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         // Log who collided with the enemy
         //Debug.Log("Hit: " + other.transform.name);
